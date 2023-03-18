@@ -1,7 +1,8 @@
 package main
 
 import (
-	"NewOsheet/http/middlewares"
+	"NewOsheet/http/routes"
+	"NewOsheet/internal/cors"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -9,9 +10,12 @@ import (
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
-	r.Use(middlewares.CORSHandler())
+	r.Use(cors.Middleware())
 
 	r.GET("/hc", healthCheck)
+
+	routes.RouteAdmins(r)
+	routes.RouteChannels(r)
 	return r
 }
 
