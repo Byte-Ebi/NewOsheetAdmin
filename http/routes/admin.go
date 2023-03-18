@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"NewOsheet/internal/authentication"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,7 +13,7 @@ func RouteAdmins(r *gin.Engine) {
 	v1 := admin.Group("v1")
 	v1.POST("/authentication")
 
-	// TODO authentication middleware
+	v1.Use(authentication.Middleware())
 
 	v1.DELETE("/authentication")
 
