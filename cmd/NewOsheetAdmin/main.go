@@ -1,7 +1,8 @@
 package main
 
 import (
-	"NewOsheetAdmin/http/routes"
+	"NewOsheetAdmin/app/admin"
+	"NewOsheetAdmin/app/talents"
 	"NewOsheetAdmin/internal/cors"
 	"net/http"
 
@@ -14,8 +15,8 @@ func setupRouter() *gin.Engine {
 
 	r.GET("/hc", healthCheck)
 
-	routes.RouteAdmins(r)
-	routes.RouteChannels(r)
+	admin.Routes(r)
+	talents.Routes(r)
 	return r
 }
 

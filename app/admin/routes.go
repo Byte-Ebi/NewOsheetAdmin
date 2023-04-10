@@ -1,16 +1,12 @@
-package routes
+package admin
 
 import (
 	"NewOsheetAdmin/internal/authentication"
-
 	"github.com/gin-gonic/gin"
 )
 
-func RouteAdmins(r *gin.Engine) {
-
-	admin := r.Group("/admin")
-
-	v1 := admin.Group("v1")
+func Routes(r *gin.Engine) {
+	v1 := r.Group("v1")
 	v1.POST("/authentication")
 
 	v1.Use(authentication.Middleware())
