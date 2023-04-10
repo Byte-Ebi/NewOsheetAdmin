@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// End to End test
+// End-to-End test
 func TestHcRoute(t *testing.T) {
 	router := setupRouter()
 
