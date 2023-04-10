@@ -1,4 +1,4 @@
-module NewOsheet
+module NewOsheetAdmin
 
 go 1.20
 

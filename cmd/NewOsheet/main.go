@@ -1,8 +1,8 @@
 package main
 
 import (
-	"NewOsheet/http/routes"
-	"NewOsheet/internal/cors"
+	"NewOsheetAdmin/http/routes"
+	"NewOsheetAdmin/internal/cors"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -21,7 +21,10 @@ func setupRouter() *gin.Engine {
 
 func main() {
 	r := setupRouter()
-	r.Run(":8080")
+	err := r.Run(":8080")
+	if err != nil {
+		return
+	}
 }
 
 func healthCheck(c *gin.Context) {

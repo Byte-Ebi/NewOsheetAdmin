@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"NewOsheet/internal/authentication"
+	"NewOsheetAdmin/internal/authentication"
 
 	"github.com/gin-gonic/gin"
 )
