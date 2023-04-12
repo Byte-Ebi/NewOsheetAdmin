@@ -12,10 +12,4 @@ func Routes(r *gin.Engine) {
 	v1.Use(authentication.Middleware())
 
 	v1.DELETE("/authentication")
-
-	talents := v1.Group("/talents")
-	talents.GET("")
-	talents.POST("")
-	talents.GET("/:name")
-	talents.PUT("/:name")
 }

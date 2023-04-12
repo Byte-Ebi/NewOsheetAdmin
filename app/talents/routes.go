@@ -9,5 +9,8 @@ func Routes(r *gin.Engine) {
 	talents := v1.Group("/talents")
 
 	talents.GET("")
+	talents.POST("")
+
 	talents.GET("/:name")
+	talents.PUT("/:name")
 }
