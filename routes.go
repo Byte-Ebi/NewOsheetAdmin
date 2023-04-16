@@ -1,7 +1,7 @@
 package NewOsheetAdmin
 
 import (
-	"NewOsheetAdmin/app/admin"
+	"NewOsheetAdmin/app/auth"
 	"NewOsheetAdmin/app/talents"
 	"NewOsheetAdmin/internal/cors"
 	"github.com/gin-gonic/gin"
@@ -17,7 +17,7 @@ func (r Router) Set() *gin.Engine {
 
 	router.GET("/hc", healthCheck)
 
-	admin.Routes(router)
+	auth.Routes(router)
 	talents.Routes(router)
 	return router
 }

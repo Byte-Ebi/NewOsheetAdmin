@@ -3,10 +3,18 @@ package authentication
 import (
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/golang-jwt/jwt"
 	"github.com/spf13/viper"
 )
+
+type JwtHelper struct {
+}
+
+func NewJTWHelper() JwtHelper {
+	return JwtHelper{}
+}
 
 type authClaims struct {
 	jwt.StandardClaims
@@ -47,6 +55,16 @@ func verifyToken(tokenString string) (string, int64, error) {
 	return claims.Account, claims.ExpiresAt, nil
 }
 
-// TODO 註銷 token
+func (j *JwtHelper) Generate(account string) (string, error) {
+	expiresAt := time.Now().Add(24 * time.Hour).Unix()
 
-// TODO 產生 token
+	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS512, authClaims{
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: expiresAt,
+		},
+		Account: account,
+	})
+
+	tokenString, err := tokenClaims.SignedString(jwtKey)
+	return tokenString, err
+}

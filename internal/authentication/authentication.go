@@ -10,8 +10,16 @@ import (
 func Middleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		authHeader := c.Request.Header.Get("Authorization")
-		_, _, err := verifyToken(authHeader)
+		if authHeader == "" {
+			c.JSON(http.StatusForbidden, gin.H{
+				"msg": "Forbidden",
+			})
+			c.Abort()
+			fmt.Printf("Authorization is required")
+			return
+		}
 
+		_, _, err := verifyToken(authHeader)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{
 				"msg": "Forbidden",
