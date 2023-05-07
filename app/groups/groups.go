@@ -1,4 +1,4 @@
-package talents
+package groups
 
 import (
 	"github.com/gin-gonic/gin"
@@ -6,7 +6,7 @@ import (
 
 func Routes(r *gin.Engine) {
 	v1 := r.Group("/v1")
-	talents := v1.Group("/talents")
+	talents := v1.Group("/groups")
 
 	talents.GET("")
 	talents.POST("")
@@ -14,5 +14,4 @@ func Routes(r *gin.Engine) {
 	talents.GET("/:id")
 	talents.PUT("/:id")
 	talents.DELETE("/:id")
-	talents.PUT("/:id/graduate")
 }

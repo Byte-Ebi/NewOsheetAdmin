@@ -3,6 +3,7 @@ package NewOsheetAdmin
 import (
 	"NewOsheetAdmin/app/auth"
 	"NewOsheetAdmin/app/companies"
+	"NewOsheetAdmin/app/groups"
 	"NewOsheetAdmin/app/talents"
 	"NewOsheetAdmin/internal/cors"
 	"net/http"
@@ -22,6 +23,7 @@ func (r Router) Set() *gin.Engine {
 	auth.Routes(router)
 	talents.Routes(router)
 	companies.Routes(router)
+	groups.Routes(router)
 
 	return router
 }
