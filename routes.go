@@ -2,10 +2,12 @@ package NewOsheetAdmin
 
 import (
 	"NewOsheetAdmin/app/auth"
+	"NewOsheetAdmin/app/companies"
 	"NewOsheetAdmin/app/talents"
 	"NewOsheetAdmin/internal/cors"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Router struct {
@@ -19,6 +21,8 @@ func (r Router) Set() *gin.Engine {
 
 	auth.Routes(router)
 	talents.Routes(router)
+	companies.Routes(router)
+
 	return router
 }
 
