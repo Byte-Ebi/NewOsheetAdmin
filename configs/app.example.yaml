@@ -1,2 +1,4 @@
 authentication:
   jwtKey:
+postgresql:
+  url:
