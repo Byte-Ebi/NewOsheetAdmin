@@ -10,7 +10,7 @@ import (
 
 // End-to-End test
 func TestHcRoute(t *testing.T) {
-	router := setupRouter()
+	router := setupRoutes()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/hc", nil)
